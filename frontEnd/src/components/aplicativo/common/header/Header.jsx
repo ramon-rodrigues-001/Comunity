@@ -1,9 +1,8 @@
 // import { Link } from "react-router-dom"
 import styles from "./Header.module.scss"
 import { useState } from "react"
-
-// importando o menu hamburguer
 import Menu from "./menu/Menu"
+
 
 function Header(props) {
   const [menuActive, setMenuActive] = useState(false)
@@ -50,7 +49,7 @@ function Header(props) {
           </button>
 
           {menuActive && (
-            < Menu setMenu={setMenu} />
+            < Menu setMenu={setMenu} mudarTema={mudarTema} />
           )}
         </div>
     </header>

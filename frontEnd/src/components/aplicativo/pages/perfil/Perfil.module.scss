@@ -1,6 +1,5 @@
 @import "../../../../styles/Cores.module.scss";
 
-
 .formulario {
     display: flex;
     align-items: center;
@@ -8,6 +7,20 @@
     max-width: 70%;
     min-height: 89.5vh;
     margin: auto;
+
+    &#temaDark {
+        .title {
+            color: white;
+        }
+        .inputContainer {
+            .label {
+                color: white;
+            }
+            .input {
+                border-color: white;
+            }
+        }
+    }
 }
 
 

@@ -1,7 +1,8 @@
 import styles from '../Perfil.module.scss'
 
 
-export default function Register() {
+export default function Register(props) {
+    const tema = props.tema
 
     const handleSubmit = async ( event ) => {
         event.preventDefault()
@@ -50,7 +51,7 @@ export default function Register() {
 
 
     return (
-        <div className={styles.formulario}>
+        <div className={styles.formulario} id={tema === 'Escuro' ? styles.temaDark : null}>
             <form onSubmit={handleSubmit}>
                 <h1 className={styles.title}>Register</h1>
 

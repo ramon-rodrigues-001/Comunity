@@ -7,8 +7,6 @@ import styles from "./Perfil.module.scss"
 function Perfil() {
     const [situacao, setsituacao] = useState('Deslogado')
 
-    
-
     return (
         situacao === 'Deslogado' ? (
             <Navigate to="login/" />

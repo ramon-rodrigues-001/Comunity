@@ -1,6 +1,7 @@
 import styles from '../Perfil.module.scss'
 
-export default function Login() {
+export default function Login(props) {
+    const tema = props.tema
 
     const handleSubmit = async ( event ) => {
         event.preventDefault()
@@ -31,7 +32,7 @@ export default function Login() {
     }
 
     return (
-        <div className={styles.formulario}>
+        <div className={styles.formulario} id={tema === 'Escuro' ? styles.temaDark : null}>
             <form onSubmit={handleSubmit}>
                 <h1 className={styles.title}>Login</h1>
 

@@ -57,11 +57,11 @@ export default function App() {
                             }/>
 
                             <Route path="/perfil/login" element={
-                                < Login />
+                                < Login tema={tema} />
                             } />
 
                             <Route path="/perfil/register" element={
-                                < Register />
+                                < Register tema={tema} />
                             } />
                         </Routes>
                     </BrowserRouter>
