@@ -1,6 +1,9 @@
 // Font 'Averia Serif Libre'
 @import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
 
+// Variaves de cores
+@import "../styles/Cores.module.scss";
+
 
 * {
   font-family: 'Averia Serif Libre', cursive;
@@ -10,7 +13,7 @@
 }
 
 .container {
-  background-color: rgb(223, 217, 217);
+  background-color: $background_Claro;
 
   .main {
     display: flex;
@@ -29,6 +32,11 @@
       margin-right: 5px;
       overflow: hidden;
     }
+  }
+
+  &#containerDark {
+    background-color: $background_Escuro;
+    color: white;
   }
 }
 

@@ -30,7 +30,7 @@ export default function App() {
     }
 
     return (
-        <div className={styles.container}>
+        <div className={styles.container} id={tema === 'Escuro' ? styles.containerDark : null}>
             < Header mudarTema={mudarTema} tema={tema}/>
 
             <main className={styles.main}>
@@ -40,12 +40,29 @@ export default function App() {
                 <div className={styles.containerVitrineDaDireita}>
                     <BrowserRouter>
                         <Routes>
-                            <Route path="/" element={< Discontrair />} />
-                            <Route path="/batePapo" element={< BatePapo />} />
-                            <Route path="/noticias" element={< Noticias />} />
-                            <Route path="/perfil" element={< Perfil />} />
-                            <Route path="/perfil/login" element={< Login />} />
-                            <Route path="/perfil/register" element={< Register />} />
+                            <Route path="/" element={
+                                < Discontrair tema={tema}/>
+                            }/>
+                            
+                            <Route path="/batePapo" element={
+                                < BatePapo />
+                            }/>
+
+                            <Route path="/noticias" element={
+                                < Noticias />
+                            }/>
+
+                            <Route path="/perfil" element={
+                                < Perfil />
+                            }/>
+
+                            <Route path="/perfil/login" element={
+                                < Login />
+                            } />
+
+                            <Route path="/perfil/register" element={
+                                < Register />
+                            } />
                         </Routes>
                     </BrowserRouter>
                 </div>

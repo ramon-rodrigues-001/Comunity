@@ -1,8 +1,11 @@
 import styles from "./Discontrair.module.scss"
 
-function Discontrair() {
+function Discontrair(props) {
+  const tema = props.tema
+  console.log(tema)
+
   return (
-    <div className={styles.discontrair}>
+    <div className={styles.discontrair} id={tema === 'Escuro' ? styles.temaDark : null}>
         <div className={styles.background}>
             <div className={styles.card_header}>
               <h2>Welcome! à nossa Plataforma de Comunidade!, Capelinha</h2> 

@@ -77,4 +77,13 @@
     p {
         padding: 20px 0px;
     }
+
+    &#temaDark {
+        .background {
+            .post {
+                background-color: $itens_Pretos; 
+                color: white;
+            }
+        }
+    }
 }
