@@ -1,0 +1,93 @@
+.aside {
+    background-color: rgb(57, 55, 55);
+    color: white;
+    padding: 15px;
+    box-shadow: 10px 0px 10px rgba(0, 0, 0, 0.078);
+    width: 230px;
+    margin-left: 5px;
+    border-radius: 20px;
+    border-bottom-right-radius: 10px;
+    overflow-y: scroll;
+    min-height: 86vh;
+    max-height: 400px;
+    position: fixed;
+
+    &#dentroDoMenu {
+        max-height: 600px;
+        overflow-y: auto;
+        width: 100%;
+        position: relative;
+    }
+
+    .containerInputPrucurarPorAmigo {
+        position: relative;
+
+        #iconeLupa {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+        }
+
+        .inputPrucurarPorAmigo {
+            color: white;
+            background-color: rgb(80, 78, 78);
+            border: none;
+            border-radius: 10px;
+            margin: 10px 0px;
+            font-size: 1.1em;
+            padding: 3px 10px 3px 33px;
+            width: 100%;
+        }
+    }
+
+    .buttonAdicionarNovoAmigo {
+        color: white;
+        background-color: rgb(80, 78, 78);
+        border: solid 1px transparent;
+        border-radius: 10px;
+        margin-bottom: 13px;
+        font-size: 1.1em;
+        padding: 3px 10px;
+        width: 100%;
+        transition: .3s;
+
+        &:hover {
+            scale: 1.03;
+            border-color: white;
+        }
+        
+    }
+
+    .cardsAmigos {
+        display: flex;
+        justify-content: space-between;
+        font-weight: bolder;
+        padding: 8px 10px;
+        border: solid 1px transparent;
+        margin-top: 10px;
+        border-radius: 10px;
+        transition: .5s;
+
+        .informationsAmigo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-left: 10px;
+
+            .spanOffOn {
+                display: inline-block;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background-color: red;
+            }
+        }
+
+        &:hover {
+            scale: 1.05;
+            border: solid 1px rgba(255, 255, 255, 0.203);
+        }
+    }
+
+}

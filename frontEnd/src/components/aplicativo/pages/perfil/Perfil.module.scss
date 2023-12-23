@@ -1,0 +1,67 @@
+@import "../../../../styles/Cores.module.scss";
+
+
+.formulario {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 70%;
+    min-height: 89.5vh;
+    margin: auto;
+}
+
+
+
+.title {
+    text-align: center;
+    color: $itens_Pretos;
+    margin-bottom: 20px;
+}
+
+.inputContainer {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 20px;
+
+    .label {
+        display: block;
+        margin-bottom: 5px;
+        color: $itens_Pretos;
+    }
+    
+    .input {
+        background-color: transparent;
+        border: solid 1px black;
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+}
+
+
+.buttonSubmit {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+    padding: 10px;
+    background-color: $itens_Pretos;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    margin-bottom: 10px;
+
+    &:hover {
+        background-color: #555;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .formulario {
+        max-width: 90%;
+    }
+}

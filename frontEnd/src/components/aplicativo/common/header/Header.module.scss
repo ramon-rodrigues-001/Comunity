@@ -1,0 +1,157 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
+
+
+header {
+    position: fixed;
+    width: 100vw;
+    background-color: white;
+    color: rgb(79, 75, 75);
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.071);
+    padding: 7px 10px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 999;
+
+
+    .containerMenu {
+        display: none;
+
+        .btnOpenMenu {
+            padding: 0px 5px;
+            border: none;
+            background-color: transparent;
+            font-size: 2em;
+            transition: .3s;
+
+            &:hover {
+                scale: 1.3;
+            }
+        }
+    }
+
+
+    ul {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        list-style: none;
+    
+        li {
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.6em;
+            transition: .5s;
+
+            a {
+                color: rgb(79, 75, 75);
+                padding: 3px 10px;
+                transition: .3s;
+            }
+
+            &:hover {
+                scale: 1.2;
+            }
+
+            &::before {
+                position: absolute;
+                font-size: .46em;
+                bottom: -90%;
+                left: 50%;
+                transform: translateX(-55%);
+                background-color: #3333335d;
+                color: #fff;
+                padding: 5px 20px;
+                border-radius: 5px;
+                opacity: 0; 
+                pointer-events: none; 
+                margin: 4px;
+                width: 80px;
+                transition: opacity 0.3s ease-in-out;
+            }
+
+            &:hover::before {
+                opacity: 1;
+            }
+
+            
+            &#discontrair {
+                &::before {
+                    content: "Discontrair";
+                }
+            }
+            &#batePapo {
+                &::before {
+                    content: "Bate Papo";
+                }
+            }
+            &#noticias {
+                &::before {
+                    content: "Noticías";
+                }
+            }
+            &#mudarTema {
+                &::before {
+                    content: "Tema";
+                }
+            }
+            &#perfil {
+                font-size: 1.7em;
+                &::before {
+                    content: "Perfil";
+                }
+            }
+            &#bell {
+                &::before {
+                    content: "Notificações";
+                }
+            }
+        }
+    }
+
+
+    &#temaDark {
+        background-color: black;
+        color: white;
+
+        ul {
+            li {
+    
+                a {
+                    color: rgb(255, 255, 255);
+                }
+            }
+        }
+    }
+}
+  
+  
+
+@media screen and (max-width: 700px) {
+    header {
+        ul {
+            gap: 20px;
+
+            li {
+                font-size: 1.4em;
+            }
+
+            &#perfil {
+                font-size: 1.4em;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 580px) {
+    header {
+        .containerMenu {
+            display: block;
+        }
+        ul {
+            display: none;
+        }
+    }
+}

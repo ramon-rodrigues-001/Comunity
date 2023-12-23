@@ -1,0 +1,80 @@
+@import "../../../../styles/Cores.module.scss";
+
+.discontrair {
+    font-weight: bolder;
+    min-height: 88.5vh;
+
+    .card_header {
+        font-size: .7em;
+        text-align: center;
+        background-color: $itens_Pretos;
+        color: white;
+        padding: 10px;
+        border-radius: 10px;
+    }
+    
+    .background {
+        .img_background {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .post {
+            margin-bottom: 30px;
+            background-color: $background_Posts; 
+            border: solid .5px black;
+            padding: 20px;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+
+            .tipoDePublication {
+                text-align: center;
+                background-color: rgb(0, 0, 0);
+                color: white;
+                padding: 0px 20px;
+                position: absolute;
+                top: 42px;
+                right: -36px;
+                width: 154px;
+                border-radius: 50px;
+                transform: rotateZ(50deg);
+            }
+
+            .perfilDoPublicador {
+                display: flex;
+
+                .imgDePerfil {
+                    background: url('https://avatars.githubusercontent.com/u/109005234?v=4') center center no-repeat;
+                    background-size: cover;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 50%;
+                    width: 50px;
+                    height: 50px;
+                }
+
+                .nomeDoUsuario {
+                    padding: 0px 10px;
+                    font-size: 1.1em;
+                }
+
+                .dataDePublication {
+                    padding: 0px 10px;
+                    font-weight: 400;
+                }
+            }
+
+            .descrition {
+                margin: 14px 0px 20px 0px;
+                font-size: .9em;
+                font-weight: 600;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+        }
+    }
+    p {
+        padding: 20px 0px;
+    }
+}

@@ -1,0 +1,131 @@
+@import "../../../../styles/Cores.module.scss";
+
+
+.SectionBatePapo {
+    padding-bottom: 20px;
+    min-height: 88.5vh;
+
+
+    .navbar {
+        position: relative;
+        background-color: $itens_Pretos;
+        font-size: 1.5em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 40px;
+        border-radius: 5px;
+
+        .nav_item {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+            padding: 10px 100px;
+            transition: .3s;
+
+            &:hover {
+                background-color: #555;
+                border-radius: 10px;
+            }
+        }
+    
+        .center_button {
+           position:absolute; 
+           bottom: -30px; 
+           left: 50%; 
+           transform: translateX(-50%);
+           background-color: #00bcd4; 
+           border-radius: 50%; 
+           display:flex;
+           justify-content:center; align-items:center;
+           border: solid rgb(223, 217, 217) 5px;
+           height: 90px; 
+           width: 90px; 
+           transition: .4s;
+
+           &:hover {
+            border-width: 2px;
+            height: 95px; 
+            width: 95px; 
+           }
+         }
+        
+         .center_button a{
+            color:white;
+            font-size: 20px;
+            text-decoration: none;
+         }
+    }
+
+    
+
+    .containerDeCardsDeGrupos {
+        display: flex;
+        gap: 20px;
+        overflow-x: scroll;
+        padding: 10px;
+
+        .cardDeGrupos {
+            background-color: $itens_Pretos;
+            border-radius: 15px;
+            min-width: 300px;
+            height: 300px;
+            transition: .4s;
+
+            &:hover {
+                scale: .95;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 865px) {
+    .SectionBatePapo {
+        .navbar {
+            font-size: 1em;
+
+            .nav_item {
+                padding: 10px 60px;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 750px) {
+    .SectionBatePapo {
+        .containerDeCardsDeGrupos {
+            overflow: auto;
+            flex-direction: column;
+    
+            .cardDeGrupos {
+                min-width: 200px;
+            }
+        }
+    }
+}
+
+
+
+@media screen and (max-width: 470px) {
+    .SectionBatePapo {
+        .navbar {
+            gap: 20px;
+
+            .nav_item {
+                padding: 10px 25px;
+            }
+
+            .center_button {
+                width: 75px;
+                height: 75px;
+            }
+            .center_button a{
+                font-size :17px ;
+            }
+        }
+    }
+}
