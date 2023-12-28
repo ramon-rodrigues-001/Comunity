@@ -70,24 +70,6 @@ function Aside(props) {
           <span>0</span>
         </div>
       </div>
-      
-      <div className={styles.cardsAmigos}>
-        Ray
-        <div className={styles.informationsAmigo}>
-          <span className={styles.spanOffOn}></span>
-          <i class="bi bi-pencil-fill"></i>
-          <span>0</span>
-        </div>
-      </div>
-      
-      <div className={styles.cardsAmigos}>
-        Ray
-        <div className={styles.informationsAmigo}>
-          <span className={styles.spanOffOn}></span>
-          <i class="bi bi-pencil-fill"></i>
-          <span>0</span>
-        </div>
-      </div>
 
       <div className={styles.cardsAmigos}>
         LOREN IP ...

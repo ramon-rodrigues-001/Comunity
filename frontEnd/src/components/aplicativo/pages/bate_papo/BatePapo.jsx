@@ -20,10 +20,10 @@ function BatePapo() {
       </div>
 
       <div className={styles.containerDeCardsDeGrupos}>
-        <div className={styles.cardDeGrupos}></div>
-        <div className={styles.cardDeGrupos}></div>
-        <div className={styles.cardDeGrupos}></div>
-        <div className={styles.cardDeGrupos}></div>
+        <div className={styles.cardDeGrupos}>Aqui ficara os grupos</div>
+        <div className={styles.cardDeGrupos}>Vazio</div>
+        <div className={styles.cardDeGrupos}>Vazio</div>
+        <div className={styles.cardDeGrupos}>Vazio</div>
       </div>
     </section>
   )

@@ -49,7 +49,7 @@ export default function App() {
                             }/>
 
                             <Route path="/noticias" element={
-                                < Noticias />
+                                < Noticias tema={tema} />
                             }/>
 
                             <Route path="/perfil" element={

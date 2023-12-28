@@ -16,8 +16,49 @@
     .background {
         .img_background {
             width: 100%;
+            max-height: 500px;
             border-radius: 10px;
         }
+
+        .container_De_Posts {
+            position: relative;
+            display: flex;
+
+            .container_anuncios {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                width: 27%;
+                position: absolute;
+                top: 0;
+                right: 5px;
+
+                .anuncios {
+                    position: relative;
+                    overflow: hidden;
+                    border: solid 1px black;
+                    color: rgb(0, 0, 0);
+                    width: 100%;
+                    height: 300px;
+                    padding: 10px;
+                    border-radius: 10px;
+                }
+            }
+        }
+
+        .tipoDePublication {
+            text-align: center;
+            background-color: rgb(0, 0, 0);
+            color: white;
+            padding: 0px 20px;
+            position: absolute;
+            top: 42px;
+            right: -36px;
+            width: 154px;
+            border-radius: 50px;
+            transform: rotateZ(50deg);
+        }
+
 
         .post {
             margin-bottom: 30px;
@@ -25,20 +66,15 @@
             border: solid .5px black;
             padding: 20px;
             border-radius: 10px;
+            max-width: 500px;
             position: relative;
             overflow: hidden;
 
-            .tipoDePublication {
-                text-align: center;
-                background-color: rgb(0, 0, 0);
-                color: white;
-                padding: 0px 20px;
-                position: absolute;
-                top: 42px;
-                right: -36px;
-                width: 154px;
-                border-radius: 50px;
-                transform: rotateZ(50deg);
+            .descrition {
+                margin: 14px 0px 20px 0px;
+                font-size: .9em;
+                font-weight: 600;
+                font-family: Arial, Helvetica, sans-serif;
             }
 
             .perfilDoPublicador {
@@ -65,13 +101,6 @@
                     font-weight: 400;
                 }
             }
-
-            .descrition {
-                margin: 14px 0px 20px 0px;
-                font-size: .9em;
-                font-weight: 600;
-                font-family: Arial, Helvetica, sans-serif;
-            }
         }
     }
     p {
@@ -80,9 +109,48 @@
 
     &#temaDark {
         .background {
+            .container_De_Posts {
+                .container_anuncios {
+                    .anuncios {
+                        border: solid rgb(255, 255, 255) 1px;
+                        color: white;
+                    }
+                }
+            }
             .post {
                 background-color: $itens_Pretos; 
                 color: white;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 1025px) {
+    .discontrair {
+        .background {
+            .container_De_Posts {
+                flex-direction: column-reverse;
+    
+                .container_anuncios {
+                    margin-bottom: 20px;
+                    width: 100%;
+                    height: 200px;
+                    position: relative;
+                    right: 0;
+
+                    .anuncios {
+                        border-radius: 10px;
+
+                        &#anuncio_2 {
+                            display: none;
+                        }
+                    }
+                }
+            }
+
+            .post {
+                margin: 0px auto 30px auto;
             }
         }
     }

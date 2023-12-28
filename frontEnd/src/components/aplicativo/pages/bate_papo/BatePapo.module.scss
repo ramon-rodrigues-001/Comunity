@@ -63,20 +63,33 @@
 
     .containerDeCardsDeGrupos {
         display: flex;
+        flex-wrap: wrap;
         gap: 20px;
-        overflow-x: scroll;
+        // overflow-x: scroll;
         padding: 10px;
 
         .cardDeGrupos {
             background-color: $itens_Pretos;
+            color: white;
             border-radius: 15px;
-            min-width: 300px;
-            height: 300px;
+            padding: 10px;
+            min-width: 250px;
+            height: 250px;
             transition: .4s;
 
             &:hover {
                 scale: .95;
             }
+        }
+    }
+}
+
+
+
+@media screen and (max-width: 1125px) {
+    .SectionBatePapo {
+        .containerDeCardsDeGrupos {
+            justify-content: center;
         }
     }
 }
@@ -95,10 +108,9 @@
 }
 
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 602px) {
     .SectionBatePapo {
         .containerDeCardsDeGrupos {
-            overflow: auto;
             flex-direction: column;
     
             .cardDeGrupos {
