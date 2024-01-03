@@ -26,7 +26,7 @@ function Discontrair(props) {
                   <div className={styles.descrition}>
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam tenetur temporibus expedita in illo beatae dignissimos nulla adipisci fugiat, praesentium ipsa, quisquam error iste nemo itaque aliquam totam numquam ratione!
                   </div>
-                  <img src="/background-home.jpg" alt="background-home" className={styles.img_background}/>
+                  <img src="/logo-1.png" alt="background-home" className={styles.img_background}/>
                 </div>
                 <div className={styles.post}>
                   <div className={styles.perfilDoPublicador}>
@@ -40,7 +40,7 @@ function Discontrair(props) {
                   <div className={styles.descrition}>
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam tenetur temporibus expedita in illo beatae dignissimos nulla adipisci fugiat, praesentium ipsa, quisquam error iste nemo itaque aliquam totam numquam ratione! Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nobis laborum eaque enim debitis officiis, id culpa animi, totam esse vel nulla perferendis, odio dolore ullam ipsa aspernatur unde tempore?
                   </div>
-                  <img src="https://tse4.mm.bing.net/th?id=OIP.QFt-RNnVZR_e3cUf3uUknwHaEK&pid=Api&P=0&h=180" alt="background-home" className={styles.img_background}/>
+                  <img src="/logo-2.png" alt="background-home" className={styles.img_background}/>
                 </div>
               </div>
 
