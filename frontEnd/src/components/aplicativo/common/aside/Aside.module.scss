@@ -82,6 +82,15 @@
                 border-radius: 50%;
                 background-color: red;
             }
+
+            i {
+                padding: 0px 3px;
+                transition: .3s;
+
+                &:hover {
+                    scale: 1.4;
+                }
+            }
         }
 
         &:hover {
