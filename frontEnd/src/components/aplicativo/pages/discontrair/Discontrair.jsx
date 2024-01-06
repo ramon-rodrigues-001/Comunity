@@ -24,7 +24,11 @@ function Discontrair(props) {
                     </div>
                   </div>
                   <div className={styles.descrition}>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam tenetur temporibus expedita in illo beatae dignissimos nulla adipisci fugiat, praesentium ipsa, quisquam error iste nemo itaque aliquam totam numquam ratione!
+                    Olá, tudo bem? 
+                    Seja bem vindo a Comunity uma plataforma de comunicação, no momento estamos em versão beta, e ainda estou desenvolvendo e aplimorando este espaço de comunicação, por isso gostariamos de receber seu flechback para melhorias e ideias que porsão ser adicionados.
+                    <br /> <br />
+                    Me chamo Ramon, entre em contato comigo por email: 
+                    ramon.rodrigues.dev@gmail.com
                   </div>
                   <img src="/logo-1.png" alt="background-home" className={styles.img_background}/>
                 </div>

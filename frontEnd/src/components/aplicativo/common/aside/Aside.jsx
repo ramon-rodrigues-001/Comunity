@@ -21,6 +21,7 @@ function Aside(props) {
 
     const iconeLapis = document.createElement('i')
     iconeLapis.className = "bi bi-pencil-fill"
+    iconeLapis.addEventListener('click', mudarNome)
     
     const spanNotification = document.createElement('span')
     spanNotification.innerHTML = 0
@@ -50,7 +51,7 @@ function Aside(props) {
 
   return (
     <div className={styles.aside} id={taDentroDoMenu && [styles.dentroDoMenu]}>
-      <h2>Seus Amigos</h2>
+      <h2>Contatos</h2>
 
       <div className={styles.containerInputPrucurarPorAmigo}>
         <i class="bi bi-search" id={styles.iconeLupa}></i>
@@ -68,15 +69,6 @@ function Aside(props) {
             <span className={styles.spanOffOn}></span>
             <i class="bi bi-pencil-fill" onClick={mudarNome}></i>
             <span>4</span>
-          </div>
-        </div>
-        
-        <div className={styles.cardsAmigos}>
-          LOREN IP ...
-          <div className={styles.informationsAmigo}>
-            <span className={styles.spanOffOn}></span>
-            <i class="bi bi-pencil-fill"></i>
-            <span>0</span>
           </div>
         </div>
       </div>
