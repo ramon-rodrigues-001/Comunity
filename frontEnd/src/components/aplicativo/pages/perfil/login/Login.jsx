@@ -20,10 +20,10 @@ export default function Login(props) {
                 body: JSON.stringify(formData),
             })
 
-            if (responseData.data.success) {
-                alert('success')
+            if (response.status == 200) {
+                alert('Login bem-sucedido')
             } else {
-                alert('no success')
+                alert('Credenciais inválidas')
             }
         }
         catch (err) {

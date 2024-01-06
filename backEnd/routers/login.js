@@ -5,11 +5,12 @@ const router = express.Router()
 
 router.post('/api/login', async (req, res) => {
     const { email, password } = req.body;
-  
-    const user = await User.findOne({ email, password });
+
+    const user = await User.findOne({ email, senha: password })
+    console.log(user)
   
     if (user) {
-      res.json({ success: true, message: 'Login bem-sucedido' });
+      res.status(200).json({ success: true, message: 'Login bem-sucedido' });
     } else {
       res.status(401).json({ success: false, message: 'Credenciais inválidas' });
     }
