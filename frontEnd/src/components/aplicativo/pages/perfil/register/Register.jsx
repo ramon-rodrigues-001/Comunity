@@ -23,7 +23,13 @@ export default function Register(props) {
             });
       
             if (response.status === 200) {
-              alert("Certo === 200")
+              alert("Registro bem-sucedido")
+              localStorage.setItem('login', 'Logado')
+
+            //   Redirecionando para a rota de perfil
+              let currentURL = window.location.href;
+              let newURL = currentURL.substring(0, currentURL.lastIndexOf('/'));
+              window.location.href = newURL;
             } 
             else {
                 const responseData = await response.json()
@@ -53,7 +59,10 @@ export default function Register(props) {
     return (
         <div className={styles.formulario} id={tema === 'Escuro' ? styles.temaDark : null}>
             <form onSubmit={handleSubmit}>
+                
                 <h1 className={styles.title}>Register</h1>
+                
+                <p className={styles.aviso}>ATENÇÂO: Não compartilhe sua senha original.</p>
 
                 <div className={styles.inputContainer}>
                     <label htmlFor="username" className={styles.label}>Nome Do Usuário</label>

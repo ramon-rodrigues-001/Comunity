@@ -1,3 +1,4 @@
+import { redirect } from 'react-router-dom';
 import styles from '../Perfil.module.scss'
 
 export default function Login(props) {
@@ -22,6 +23,12 @@ export default function Login(props) {
 
             if (response.status == 200) {
                 alert('Login bem-sucedido')
+                localStorage.setItem('login', 'Logado')
+            
+                //   Redirecionando para a rota de perfil
+                let currentURL = window.location.href;
+                let newURL = currentURL.substring(0, currentURL.lastIndexOf('/'));
+                window.location.href = newURL;
             } else {
                 alert('Credenciais inválidas')
             }
