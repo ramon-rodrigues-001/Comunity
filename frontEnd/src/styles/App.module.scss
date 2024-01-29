@@ -14,7 +14,7 @@
 
 
 
-
+// ================ ESTILOS PARA ANIMAÇÃO DE PRE-LOADING =================
 @keyframes animate {
   0% {
       transform: rotateX(-30deg) rotateY(0deg);
@@ -85,6 +85,7 @@
 
 
 
+// ESYILO PARA AS PAGINAS E ROTAS
 .container {
   background-color: $background_Claro;
 

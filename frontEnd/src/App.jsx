@@ -9,7 +9,7 @@ import Noticias from './components/aplicativo/pages/noticias/Noticias';
 import Perfil from './components/aplicativo/pages/perfil/Perfil';
 import Login from './components/aplicativo/pages/perfil/login/Login';
 import Register from './components/aplicativo/pages/perfil/register/Register';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 export default function App() {
@@ -17,6 +17,8 @@ export default function App() {
     const [tema, setTema] = useState(temaSalvo)
     const [loading, setLoading] = useState(true)
 
+
+    // SISTEMA DE MUDAR TEMA ESCURO/CLARO
     const mudarTema = () => {
         if (tema === null) {
             localStorage.setItem('temaAtual', 'Escuro');
@@ -31,6 +33,15 @@ export default function App() {
     }
 
 
+
+    //======= SISTEMA DE PRE-LOAD-LOADING =======
+    useEffect(() => {
+        const timeoutId = setTimeout(() => {
+          setLoading(false);
+        }, 2000);
+    
+        return () => clearTimeout(timeoutId);
+      }, []);
     const setLoad = () => {
         return setLoading(false)
     }
@@ -38,7 +49,7 @@ export default function App() {
 
     return (
         <>
-        {/* Animação de pre-carregamento */}
+        {/* ANIMAÇÃO DE PRE-LOADING */}
         {loading ? (
             <div className={styles.preload}>
                 <div className={styles.cube}>
@@ -50,48 +61,48 @@ export default function App() {
                 </div>
             </div>
         ) : (
-            null
+            // ROTAS E PAGINAS
+            <div className={styles.container} id={tema === 'Escuro' ? styles.containerDark : null}>
+            < Header mudarTema={mudarTema} tema={tema}/>
+                <main className={styles.main} onLoad={setLoad}>
+                    <div className={styles.containerAsideDaEsquerda}>
+                        < Aside /> 
+                    </div>
+                    <div className={styles.containerVitrineDaDireita}>
+                        <BrowserRouter>
+                            <Routes>
+                                <Route path="/" element={
+                                    < Discontrair tema={tema}/>
+                                }/>
+                                
+                                <Route path="/batePapo" element={
+                                    < BatePapo />
+                                }/>
+
+                                <Route path="/noticias" element={
+                                    < Noticias tema={tema} />
+                                }/>
+
+                                <Route path="/perfil" element={
+                                    < Perfil />
+                                }/>
+
+                                <Route path="/perfil/login" element={
+                                    < Login tema={tema} />
+                                } />
+
+                                <Route path="/perfil/register" element={
+                                    < Register tema={tema} />
+                                } />
+                            </Routes>
+                        </BrowserRouter>
+                    </div>
+                </main>
+            </div>
         )}
 
 
-<div className={styles.container} id={tema === 'Escuro' ? styles.containerDark : null}>
-            < Header mudarTema={mudarTema} tema={tema}/>
 
-            <main className={styles.main} onLoad={setLoad}>
-                <div className={styles.containerAsideDaEsquerda}>
-                    < Aside /> 
-                </div>
-                <div className={styles.containerVitrineDaDireita}>
-                    <BrowserRouter>
-                        <Routes>
-                            <Route path="/" element={
-                                < Discontrair tema={tema}/>
-                            }/>
-                            
-                            <Route path="/batePapo" element={
-                                < BatePapo />
-                            }/>
-
-                            <Route path="/noticias" element={
-                                < Noticias tema={tema} />
-                            }/>
-
-                            <Route path="/perfil" element={
-                                < Perfil />
-                            }/>
-
-                            <Route path="/perfil/login" element={
-                                < Login tema={tema} />
-                            } />
-
-                            <Route path="/perfil/register" element={
-                                < Register tema={tema} />
-                            } />
-                        </Routes>
-                    </BrowserRouter>
-                </div>
-            </main>
-        </div>
 
         
     </>
