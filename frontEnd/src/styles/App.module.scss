@@ -12,6 +12,79 @@
   padding: 0;
 }
 
+
+
+
+@keyframes animate {
+  0% {
+      transform: rotateX(-30deg) rotateY(0deg);
+  }
+  100% {
+      transform: rotateX(-30deg) rotateY(360deg);
+  }
+}
+.preload {
+  background-color: $background_Escuro;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.cube {
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(-30deg);
+  animation: animate 3s linear infinite;
+  margin: 100px auto;
+  width: 100px;
+  height: 100px;
+
+  span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(#151515, #00ce00);
+    transform: rotateY(calc(90deg * var(--i))) translateZ(49px);
+    width: 100%;
+    height: 100%;
+  }
+
+  .top {
+    transform-style: preserve-3d;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    background: #222;
+    transform: rotateX(90deg) translateZ(150px);
+    width: 100px;
+    height: 100px;
+  }
+  
+  .top::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #0f0;
+    transform: translateZ(-200px);
+    filter: blur(20px);
+    width: 100px;
+    height: 100px;
+  
+    box-shadow: 0 0 50px rgba(0, 255, 0, 0.9), 
+    0 0 100px rgba(0, 255, 0, 0.2),
+    0 0 200px rgba(0, 255, 0, 0.4),
+    0 0 300px rgba(0, 255, 0, 0.6),
+    0 0 400px rgba(0, 255, 0, 0.1);
+  }
+}
+
+
+
+
+
+
 .container {
   background-color: $background_Claro;
 

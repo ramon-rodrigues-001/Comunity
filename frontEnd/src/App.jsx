@@ -15,6 +15,7 @@ import { useState } from 'react';
 export default function App() {
     let temaSalvo = localStorage.getItem('temaAtual');
     const [tema, setTema] = useState(temaSalvo)
+    const [loading, setLoading] = useState(true)
 
     const mudarTema = () => {
         if (tema === null) {
@@ -29,11 +30,34 @@ export default function App() {
         }
     }
 
+
+    const setLoad = () => {
+        return setLoading(false)
+    }
+
+
     return (
-        <div className={styles.container} id={tema === 'Escuro' ? styles.containerDark : null}>
+        <>
+        {/* Animação de pre-carregamento */}
+        {loading ? (
+            <div className={styles.preload}>
+                <div className={styles.cube}>
+                <div className={styles.top}></div>
+                <span style={{ '--i': 0 }}></span>
+                <span style={{ '--i': 1 }}></span>
+                <span style={{ '--i': 2 }}></span>
+                <span style={{ '--i': 3 }}></span>
+                </div>
+            </div>
+        ) : (
+            null
+        )}
+
+
+<div className={styles.container} id={tema === 'Escuro' ? styles.containerDark : null}>
             < Header mudarTema={mudarTema} tema={tema}/>
 
-            <main className={styles.main}>
+            <main className={styles.main} onLoad={setLoad}>
                 <div className={styles.containerAsideDaEsquerda}>
                     < Aside /> 
                 </div>
@@ -68,5 +92,8 @@ export default function App() {
                 </div>
             </main>
         </div>
+
+        
+    </>
     )
 }
