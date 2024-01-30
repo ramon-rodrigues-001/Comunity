@@ -38,13 +38,10 @@ export default function App() {
     useEffect(() => {
         const timeoutId = setTimeout(() => {
           setLoading(false);
-        }, 2000);
+        }, 1800);
     
         return () => clearTimeout(timeoutId);
       }, []);
-    const setLoad = () => {
-        return setLoading(false)
-    }
 
 
     return (
@@ -64,7 +61,7 @@ export default function App() {
             // ROTAS E PAGINAS
             <div className={styles.container} id={tema === 'Escuro' ? styles.containerDark : null}>
             < Header mudarTema={mudarTema} tema={tema}/>
-                <main className={styles.main} onLoad={setLoad}>
+                <main className={styles.main} >
                     <div className={styles.containerAsideDaEsquerda}>
                         < Aside /> 
                     </div>
