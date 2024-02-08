@@ -24,10 +24,14 @@
             color: white;
             padding: 10px 100px;
             transition: .3s;
+            border-radius: 5px;
 
             &:hover {
-                background-color: #555;
-                border-radius: 10px;
+                background: linear-gradient(to left, $itens_Pretos, #00bcd4);
+            }
+
+            &#direita:hover {
+                background: linear-gradient(to left, #00bcd4, $itens_Pretos);
             }
         }
     
@@ -43,7 +47,7 @@
            border: solid rgb(223, 217, 217) 5px;
            height: 90px; 
            width: 90px; 
-           transition: .4s;
+           transition: .2s;
 
            &:hover {
             border-width: 2px;
@@ -136,7 +140,7 @@
                 height: 75px;
             }
             .center_button a{
-                font-size :17px ;
+                font-size :13px ;
             }
         }
     }

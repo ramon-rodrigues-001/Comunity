@@ -91,6 +91,13 @@
                     scale: 1.4;
                 }
             }
+
+            .spanMsg {
+                font-size: .8em;
+                background-color: #00bcd4;
+                border-radius: 40% 50% 50% 1%;
+                padding: 2px 5px;
+            }
         }
 
         &:hover {

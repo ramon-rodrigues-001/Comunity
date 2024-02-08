@@ -13,9 +13,9 @@ function BatePapo() {
             <a href='#'>Amigos</a>  
           </div>
 
-          <div className={styles.nav_item}>
+          <div className={styles.nav_item} id={styles.direita}>
             <i class="bi bi-plus-lg"></i>
-            Achar Grupo
+            Descobrir
           </div>
       </div>
 

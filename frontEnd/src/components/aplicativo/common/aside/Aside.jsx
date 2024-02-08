@@ -25,6 +25,7 @@ function Aside(props) {
     
     const spanNotification = document.createElement('span')
     spanNotification.innerHTML = 0
+    spanNotification.className = styles.spanMsg
 
     informationsAmigo.appendChild(spanOffOn)
     informationsAmigo.appendChild(iconeLapis)
@@ -68,7 +69,7 @@ function Aside(props) {
           <div className={styles.informationsAmigo}>
             <span className={styles.spanOffOn}></span>
             <i class="bi bi-pencil-fill" onClick={mudarNome}></i>
-            <span>4</span>
+            <span className={styles.spanMsg}>4</span>
           </div>
         </div>
       </div>
