@@ -10,6 +10,7 @@ import Perfil from './components/aplicativo/pages/perfil/Perfil';
 import Login from './components/aplicativo/pages/perfil/login/Login';
 import Register from './components/aplicativo/pages/perfil/register/Register';
 import { useEffect, useState } from 'react';
+import ChatPv from './components/aplicativo/pages/chat_pv/ChatPv';
 
 
 export default function App() {
@@ -60,7 +61,8 @@ export default function App() {
         ) : (
             // ROTAS E PAGINAS
             <div className={styles.container} id={tema === 'Escuro' ? styles.containerDark : null}>
-            < Header mudarTema={mudarTema} tema={tema}/>
+                < Header mudarTema={mudarTema} tema={tema}/>
+
                 <main className={styles.main} >
                     <div className={styles.containerAsideDaEsquerda}>
                         < Aside /> 
@@ -91,10 +93,17 @@ export default function App() {
                                 <Route path="/perfil/register" element={
                                     < Register tema={tema} />
                                 } />
+
+
+                                <Route path="/chatpv" element={
+                                    < ChatPv tema={tema} />
+                                } />
                             </Routes>
                         </BrowserRouter>
                     </div>
                 </main>
+
+
             </div>
         )}
 

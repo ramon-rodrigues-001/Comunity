@@ -1,0 +1,27 @@
+.containerChat {
+    position: relative;
+    border: solid 1px white;
+    margin-bottom: 20px;
+    min-height:85vh;
+    overflow-y: scroll;
+    padding: 20px;
+    border-radius: 80px 0px 0px 0px;
+
+    .my {
+        font-family: Arial, Helvetica, sans-serif;
+        max-width: 600px;
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 15px 20px 15px 0px;
+        background-color: #00bbd436;
+    }
+
+    .you {
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 10px;
+        margin-bottom: 15px;
+        text-align: end;
+        border-radius: 20px 15px 0px 15px;
+        background-color: #00bbd43e;
+    }
+}

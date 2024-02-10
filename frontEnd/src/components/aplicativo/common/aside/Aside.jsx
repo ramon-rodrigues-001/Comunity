@@ -64,14 +64,14 @@ function Aside(props) {
       </button>
 
       <div className='containerDeAmigos'>
-        <div className={styles.cardsAmigos}>
+        <a href="/chatpv" className={styles.cardsAmigos}>
           <p>Ramon</p>
           <div className={styles.informationsAmigo}>
             <span className={styles.spanOffOn}></span>
             <i class="bi bi-pencil-fill" onClick={mudarNome}></i>
             <span className={styles.spanMsg}>4</span>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   )
