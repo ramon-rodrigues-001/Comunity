@@ -12,6 +12,7 @@
     }
 }
 
+
 .formulario {
     display: flex;
     align-items: center;
@@ -71,7 +72,13 @@
         border-radius: 5px;
         font-size: 16px;
     }
+
+
+    .labelRadios {
+        padding: 0px 15px 0px 4px;
+    }
 }
+
 
 
 .buttonSubmit {

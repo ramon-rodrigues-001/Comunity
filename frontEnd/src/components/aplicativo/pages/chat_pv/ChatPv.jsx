@@ -11,8 +11,9 @@ export default function ChatPv(props) {
             <div className={styles.chat}>
                 <div className={styles.msg} id={styles.voce}>
                     <h4>You</h4>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi sed eveniet et autem exercitationem id iusto, velit hic laborum sapiente fugiat ipsum repudiandae. Atque odio dolore quae accusamus debitis esse?</p>
+                    <p>Oi, Tudo Bem?</p>
                 </div>
+                
                 <div className={styles.msg} id={styles.amigo}>
                     <h4>Ramon</h4>
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi sed eveniet et autem exercitationem id iusto, velit hic laborum sapiente fugiat ipsum repudiandae. Atque odio dolore quae accusamus debitis esse?</p>
@@ -44,6 +45,12 @@ export default function ChatPv(props) {
                     <h4>You</h4>
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi sed eveniet et autem exercitationem id iusto, velit hic laborum sapiente fugiat ipsum repudiandae. Atque odio dolore quae accusamus debitis esse?</p>
                 </div>
+            </div>
+
+
+            <div className={styles.inputDeMensagem}>
+                <input type="text" name="" id="" placeholder="Mensagem..." />
+                <button>Enviar</button>
             </div>
         </div>
     )

@@ -1,21 +1,22 @@
 .containerChat {
     position: relative;
-    border: solid 1px rgb(0, 0, 0);
+    border: solid 1px rgba(0, 0, 0, 0.287);
     margin-bottom: 20px;
     height:85vh;
     overflow-y: scroll;
+    overflow-anchor: none;
     padding: 20px;
     border-radius: 10px 0px 0px 10px;
 
     .chat {
         .msg {
-            margin: 30px 0px;
+            margin: 20px 0px;
 
             p {
                 display: inline-block;
                 font-weight: bold;
                 font-family: Arial, Helvetica, sans-serif;
-                background-color: #00bbd436;
+                background-color: #00bbd4;
                 border-radius: 15px 20px 15px 0px;
                 padding: 10px;
                 max-width: 600px;
@@ -37,6 +38,30 @@
                     text-align: end;
                 }
             }
+        }
+    }
+
+
+
+    .inputDeMensagem {
+        background-color: rgb(91, 76, 76);
+        position: sticky;
+        bottom: 0;
+        transform: translateY(50%);
+        padding: 4px;
+        width: 100%;
+        border-radius: 10px;
+
+        input {
+            color: white;
+            background-color: rgba(81, 0, 0, 0);
+            max-height: 40px;
+            font-size: 1.2em;
+            font-weight: bold;
+            padding: 6px;
+            border: none;
+            border-radius: 10px;
+            width: 80%;
         }
     }
 

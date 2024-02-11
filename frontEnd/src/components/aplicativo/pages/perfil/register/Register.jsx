@@ -62,7 +62,7 @@ export default function Register(props) {
                 
                 <h1 className={styles.title}>Register</h1>
                 
-                <p className={styles.aviso}>ATENÇÂO: Não compartilhe sua senha original.</p>
+                <p className={styles.aviso}>ATENÇÂO: Não compartilhe senhas importantes.</p>
 
                 <div className={styles.inputContainer}>
                     <label htmlFor="username" className={styles.label}>Nome Do Usuário</label>
@@ -77,6 +77,16 @@ export default function Register(props) {
                 <div className={styles.inputContainer}>
                     <label htmlFor="password" className={styles.label}>Senha</label>
                     <input type="password" id="password" name="password" placeholder="Digite sua senha" required className={styles.input}/>
+                </div>
+
+                <div className={styles.inputContainer}>
+                    <label className={styles.label}>Genero</label>
+
+                    <input type="radio" name="genero" id="masculino"/>
+                    <label htmlFor="masculino" id='masculino' className={styles.labelRadios}>Masculino</label>
+
+                    <input type="radio" name="genero" id="feminino" />
+                    <label htmlFor="feminino" id='feminino' className={styles.labelRadios}>Feminino</label>
                 </div>
 
 
