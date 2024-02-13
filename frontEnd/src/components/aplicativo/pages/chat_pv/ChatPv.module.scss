@@ -3,12 +3,18 @@
     border: solid 1px rgba(0, 0, 0, 0.287);
     margin-bottom: 20px;
     height:85vh;
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-anchor: none;
-    padding: 20px;
     border-radius: 10px 0px 0px 10px;
 
+    .h1 {
+        padding: 20px 20px 0px 20px;
+    }
+
     .chat {
+        padding: 20px;
+        height: 90%;
+
         .msg {
             margin: 20px 0px;
 
@@ -45,23 +51,45 @@
 
     .inputDeMensagem {
         background-color: rgb(91, 76, 76);
+        border-radius: 20px;
         position: sticky;
         bottom: 0;
-        transform: translateY(50%);
-        padding: 4px;
+        padding: 5px 10px;
         width: 100%;
-        border-radius: 10px;
+        display: flex;
+        align-items: center;
 
-        input {
+        textarea {
             color: white;
             background-color: rgba(81, 0, 0, 0);
-            max-height: 40px;
             font-size: 1.2em;
             font-weight: bold;
-            padding: 6px;
+            padding: 10px 15px;
             border: none;
             border-radius: 10px;
-            width: 80%;
+            width: 90%;
+            resize: none; /* Impede que o usuário redimensione manualmente o textarea */
+            overflow-y: hidden;
+
+            &:focus { 
+                outline: none;
+            }
+        }
+
+        button {
+            font-size: 1.4em;
+            background-color: #32363784;
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            transition: .3s;
+
+            &:hover {
+                // scale: 2;
+                transform: rotateZ(-47deg);
+            }
         }
     }
 
@@ -69,5 +97,11 @@
 
     &#temaDark {
         border-color: white;
+
+        #voce {
+            p {
+                color: black;
+            }
+        }
     }
 }
