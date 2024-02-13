@@ -34,7 +34,7 @@ export default function ChatPv(props) {
                     rows="1"
                     className={styles.textarea} // Use a classe de estilo para o textarea
                     onInput={handleInput} // Use o evento onInput para detectar mudanças no texto
-                    placeholder="Mensagem..."
+                    placeholder="Enviar mensagem..."
                 />
                 <button><i class="bi bi-send-fill"></i></button>
             </div>
