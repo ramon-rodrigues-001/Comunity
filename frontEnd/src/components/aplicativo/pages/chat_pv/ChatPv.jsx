@@ -13,6 +13,7 @@ export default function ChatPv(props) {
 
 
     return (
+        <>
         <div className={styles.containerChat} id={tema == 'Escuro' ? styles.temaDark : null}>
             <h1 className={styles.h1}>Chat</h1>
             
@@ -26,18 +27,44 @@ export default function ChatPv(props) {
                     <h4>Ramon</h4>
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi sed eveniet et autem exercitationem id iusto, velit hic laborum sapiente fugiat ipsum repudiandae. Atque odio dolore quae accusamus debitis esse?</p>
                 </div>
+
+
+
+                <div className={styles.msg} id={styles.voce}>
+                    <h4>You</h4>
+                    <p>Oi, Tudo Bem?</p>
+                </div>
+                
+                <div className={styles.msg} id={styles.amigo}>
+                    <h4>Ramon</h4>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi sed eveniet et autem exercitationem id iusto, velit hic laborum sapiente fugiat ipsum repudiandae. Atque odio dolore quae accusamus debitis esse?</p>
+                </div><div className={styles.msg} id={styles.voce}>
+                    <h4>You</h4>
+                    <p>Oi, Tudo Bem?</p>
+                </div>
+                
+                <div className={styles.msg} id={styles.amigo}>
+                    <h4>Ramon</h4>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi sed eveniet et autem exercitationem id iusto, velit hic laborum sapiente fugiat ipsum repudiandae. Atque odio dolore quae accusamus debitis esse?</p>
+                </div>
             </div>
 
 
-            <div className={styles.inputDeMensagem}>
+            
+        </div>
+
+
+
+        <div className={styles.inputDeMensagem}>
                 <textarea
+                    autoFocus
                     rows="1"
-                    className={styles.textarea} // Use a classe de estilo para o textarea
-                    onInput={handleInput} // Use o evento onInput para detectar mudanças no texto
+                    className={styles.textarea}
+                    onInput={handleInput}
                     placeholder="Enviar mensagem..."
                 />
                 <button><i class="bi bi-send-fill"></i></button>
             </div>
-        </div>
+        </>
     )
 }
