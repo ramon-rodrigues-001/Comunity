@@ -15,7 +15,7 @@ export default function ChatPv(props) {
     return (
         <>
         <div className={styles.containerChat} id={tema == 'Escuro' ? styles.temaDark : null}>
-            <h1 className={styles.h1}>Chat</h1>
+            <h3 className={styles.h1}>Chat privado com Ramon</h3>
             
             <div className={styles.chat}>
                 <div className={styles.msg} id={styles.voce}>
