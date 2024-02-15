@@ -10,11 +10,43 @@ export default function ChatPv(props) {
         inputArea.style.height = inputArea.scrollHeight + 'px'; // Define a altura do textarea com base no tamanho do conteúdo
     }
 
-    const handleNewMensagem = (event) => {
+    const handleNewMensagem = async (event) => {
         event.preventDefault()
-        const mensagem = event.target.mensagem.value
+        const mensagemEnviada = event.target.mensagem.value
 
-        alert(mensagem)
+
+        try {
+            const response = await fetch("http://localhost:4000/api/mensagem", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({mensagemEnviada}),
+            });
+      
+            if (response.status === 200) {
+              alert("MSG Enviado")
+            } 
+            // else {
+            //     const responseData = await response.json()
+                
+            //     if (responseData.message === "o apelido do usuário já existe") {
+            //         alert('Apelido repetido')
+            //     }
+            //     else if (responseData.message === "o email do usuário já existe") {
+            //         alert('Email repetido')
+            //     }
+            //     else if (responseData.message === "requisito minimo de caracteres") {
+            //         alert('Senha sem requisito minimo de caracteres')
+            //     }
+            //     else {
+            //         alert('Erro desconhecido')
+            //     }
+            // }
+        } 
+        catch (error) {
+            console.error("Erro ao enviar mensagem:", error);
+        }
     }
 
 

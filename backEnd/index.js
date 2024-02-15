@@ -4,7 +4,8 @@ const mongoose = require('mongoose')
 
 // Rotas
 const register = require('./routers/register.js')
-const login = require('./routers/login.js')
+const login = require('./routers/login.js');
+const Mensagem = require('./routers/rotaDeMensagem.js');
 
 // Configurando o express
 const app = express()
@@ -21,6 +22,7 @@ mongoose.connect(port, {
 .then(()=> {
     app.use('/', register);
     app.use('/', login)
+    app.use('/', Mensagem)
 
     app.listen(4000, ()=> {
         console.log('Conectado ao banco de dados, e servidor esta rodando!')
