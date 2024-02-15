@@ -10,8 +10,10 @@ export default function Register(props) {
         const username = event.target.username.value;
         const email = event.target.email.value;
         const password = event.target.password.value;
+        const genero = event.target.genero.value
+        if (genero === '') return(alert('informe o genero sexual')) 
 
-        const formData = { username, email, password }
+        const formData = { username, email, password, genero }
     
         try {
             const response = await fetch("http://localhost:4000/api/register", {
@@ -76,16 +78,18 @@ export default function Register(props) {
 
                 <div className={styles.inputContainer}>
                     <label htmlFor="password" className={styles.label}>Senha</label>
-                    <input type="password" id="password" name="password" placeholder="Digite sua senha" required className={styles.input}/>
+                    <input type="password" id="password" name="password" placeholder="Digite sua senha" min={8} required className={styles.input}/>
                 </div>
+
+
 
                 <div className={styles.inputContainer}>
                     <label className={styles.label}>Genero</label>
 
-                    <input type="radio" name="genero" id="masculino"/>
+                    <input type="radio" name="genero" id="masculino" value="masculino"/>
                     <label htmlFor="masculino" id='masculino' className={styles.labelRadios}>Masculino</label>
 
-                    <input type="radio" name="genero" id="feminino" />
+                    <input type="radio" name="genero" id="feminino" value="feminino" />
                     <label htmlFor="feminino" id='feminino' className={styles.labelRadios}>Feminino</label>
                 </div>
 

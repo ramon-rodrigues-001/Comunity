@@ -4,7 +4,7 @@ const router = express.Router()
 
 
 router.post("/api/register", async (req, res) => { 
-    const { username, email, password } = req.body;
+    const { username, email, password, genero } = req.body;
     let userExist = false
 
     await user.find().then(usuarios => {
@@ -28,7 +28,8 @@ router.post("/api/register", async (req, res) => {
             const newUser = new user({ 
                 nome: username, 
                 email: email, 
-                senha: password 
+                senha: password,
+                genero: genero
             })
             try {
                 newUser.save()
