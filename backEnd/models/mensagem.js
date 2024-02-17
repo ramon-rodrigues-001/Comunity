@@ -7,5 +7,5 @@ const mensagemSchema = mongoose.Schema({
     }
 })
 
-const Mensagem = mongoose.model('Mensagen', mensagemSchema)
-module.exports = Mensagem
+const mensagemModel = mongoose.model('Mensagen', mensagemSchema)
+module.exports = mensagemModel
