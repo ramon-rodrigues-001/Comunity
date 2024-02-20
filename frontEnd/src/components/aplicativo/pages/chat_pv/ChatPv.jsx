@@ -17,29 +17,32 @@ export default function ChatPv(props) {
     }
 
 
-    // useEffect(() => {
-    //     // Conectar-se ao servidor Socket.IO
-    //     socket.on('connect', () => {
-    //         console.log('Conectado ao servidor Socket.IO');
-    //     });
+    useEffect(() => {
+        socket.on('connect', socketIO => {
+            console.log('Conectado ao servidor Socket.IO');
+        });    
 
-    //     // Lidar com a recepção de novas mensagens
-    //     socket.on('novaMensagem', (mensagem) => {
-    //         setHistorico_de_mensagem([...historico_de_mensagem, mensagem]);
-    //     });
+        // return () => {
+        //     io.disconnect(); // Desconectar-se do servidor Socket.IO ao desmontar o componente
+        // };
+    }, []);
 
-    //     return () => {
-    //         socket.disconnect(); // Desconectar-se do servidor Socket.IO ao desmontar o componente
-    //     };
-    // }, [historico_de_mensagem]);
+    socket.on('respostaMensagem', async resposta => {
+        console.log('Resposta do servidor: ' + resposta);
+        setHistorico_de_mensagem(prevMessages => [...prevMessages, resposta]);
+        console.log(historico_de_mensagem)
+    });
+
 
 
     // ==== Salvar a mensagem no banco de dados MongoDB ====
-    const handleNewMensagem = async (event) => {
+    const handleNewMensagem = async (event) => {        
         event.preventDefault()
         
         const mensagemEnviada = event.target.mensagem.value
         event.target.mensagem.value = ''
+
+        socket.emit('novaMensagem', mensagemEnviada)
 
         try {
             const response = await fetch("http://localhost:4000/api/mensagem", {
@@ -57,24 +60,6 @@ export default function ChatPv(props) {
 
 
 
-    // ==== Buscar as mensagens salvas no banco de dados ====
-    //   const buscarDados = async () => {
-    //     try {
-    //       const resposta = await fetch('http://localhost:4000/api/pegarMensagens');
-    //       const dadosJson = await resposta.json(); // Converte a resposta para JSON
-    //       setHistorico_de_mensagem(dadosJson)
-    //     } catch (erro) {
-    //       console.error('Erro ao buscar os dados:', erro);
-    //     } 
-    //   }; 
-      
-    // useEffect(() => {
-    //     const intervalo = setInterval(buscarDados, 5000);
-    //     return () => clearInterval(intervalo);
-    //   }, []);
-
-
-
 
     return (
         <>
@@ -83,11 +68,10 @@ export default function ChatPv(props) {
             
             <div className={styles.chat}>
 
-
                 {historico_de_mensagem.map(item => (
-                    <div className={styles.msg} id={styles.voce} key={item._id}>
+                    <div className={styles.msg} id={styles.voce}>
                         <h4>You</h4>
-                        <p>{item.mensagem}</p>
+                        <p>{item}</p>
                     </div>
                 ))}
 
@@ -102,7 +86,7 @@ export default function ChatPv(props) {
 
 
 
-        <form action="" className={styles.inputDeMensagem} onSubmit={handleNewMensagem}>
+        <form action="" className={styles.inputDeMensagem} onSubmit={(e) => handleNewMensagem(e)}>
             <textarea
                 autoFocus
                 rows="1"

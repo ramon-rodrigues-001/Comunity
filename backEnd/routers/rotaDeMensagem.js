@@ -1,16 +1,26 @@
-const mensagemModel = require('../models/mensagem.js')
+const mensagemModel = require('../models/mensagem.js');
+const express = require('express')
+
+const router = express.Router()
 
 
-async function salvarMensagemNoBancoDeDados( mensagem ) {
+router.post('/api/mensagem', async (req, res) => {
+    const {mensagemEnviada} = req.body
+
+    if (!mensagemEnviada) return res.status(400).json({ error: 'Mensagem inválida' });
+
+    const newMensagem = new mensagemModel({
+        mensagem: mensagemEnviada
+    })
+
+
     try {
-        if (!mensagem) return 'Mensagem inválida'
-        const novaMensagem = new mensagemModel({ mensagem });
-        await novaMensagem.save();
-        return novaMensagem;
+        await newMensagem.save();
+        res.sendStatus(200);
     } catch (error) {
-        console.error('Erro ao salvar a mensagem:', error);
-        throw error;
+        console.log('===== Erro ao enviar mensagem (erro de codigo) =====', error);
+        res.status(500).json({ error: 'Erro ao salvar a mensagem' });
     }
-}
+})
 
-module.exports = salvarMensagemNoBancoDeDados()
+module.exports = router

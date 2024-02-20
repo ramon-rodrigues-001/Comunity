@@ -7,17 +7,20 @@ function Discontrair(props) {
   return (
     <div className={styles.discontrair} id={tema === 'Escuro' ? styles.temaDark : null}>
         <div className={styles.background}>
-            <div className={styles.card_header}>
+          
+            {/* Welcome */}
+            <div className={styles.welcome}>
               <h2>Welcome! à nossa Plataforma de Comunidade!, Capelinha</h2> 
             </div><br />
 
+
+            {/* Container de posts */}
             <div className={styles.container_De_Posts}>
               <div>
                 <div className={styles.post}>
                   <p className={styles.tipoDePublication}>ADM</p>
                   <div className={styles.perfilDoPublicador}>
                     <div className={styles.imgDePerfil}></div>
-                
                     <div>
                       <p className={styles.nomeDoUsuario}>Ramon Rodrigues</p>
                       <p className={styles.dataDePublication}>10/05/23</p>
@@ -32,22 +35,28 @@ function Discontrair(props) {
                   </div>
                   <img src="/logo-1.png" alt="background-home" className={styles.img_background}/>
                 </div>
+
                 <div className={styles.post}>
                   <div className={styles.perfilDoPublicador}>
                     <div className={styles.imgDePerfil}></div>
-                
                     <div>
                       <p className={styles.nomeDoUsuario}>Ramon Rodrigues</p>
                       <p className={styles.dataDePublication}>10/01/22</p>
                     </div>
                   </div>
                   <div className={styles.descrition}>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam tenetur temporibus expedita in illo beatae dignissimos nulla adipisci fugiat, praesentium ipsa, quisquam error iste nemo itaque aliquam totam numquam ratione! Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nobis laborum eaque enim debitis officiis, id culpa animi, totam esse vel nulla perferendis, odio dolore ullam ipsa aspernatur unde tempore?
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam tenetur temporibus expedita in illo beatae dignissimos nulla adipisci fugiat, praesentium ipsa, 
                   </div>
                   <img src="/logo-2.png" alt="background-home" className={styles.img_background}/>
+                  <div className={styles.curtidas}>
+                    <span>Li: 16</span>
+                    <span>Dk: 2</span>
+                  </div>
                 </div>
               </div>
 
+
+              {/* Anucios */}
               <div className={styles.container_anuncios}>
                 <div className={styles.anuncios}>
                   <p className={styles.tipoDePublication}>Padrocinado</p>
@@ -58,6 +67,7 @@ function Discontrair(props) {
                   Vazio
                 </div>
               </div>
+
             </div>
         </div>
     </div>

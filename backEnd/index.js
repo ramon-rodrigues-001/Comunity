@@ -7,9 +7,10 @@ const cors = require('cors');
 
 const registerRouter = require('./routers/register');
 const loginRouter = require('./routers/login');
-const {salvarMensagemNoBancoDeDados} = require('./routers/rotaDeMensagem.js');
+const mensagemRouter = require('./routers/rotaDeMensagem');
 
 
+ 
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server, { cors: { origin: 'http://127.0.0.1:5173', methods: ['GET', 'POST']}});
@@ -24,27 +25,8 @@ app.use(cors());
 // Configuração das rotas após a conexão com o banco de dados
 app.use('/', registerRouter);
 app.use('/', loginRouter);
-// app.use('/', mensagemRouter);
+app.use('/', mensagemRouter);
 
-
-
-// Configurações do Socket.IO
-io.on('connection', (socket) => {
-    console.log('Nova conexão de socket estabelecida', socket.id);
-
-    socket.on('enviarMensagem', async (mensagem) => {
-        try {
-            // Salvar a mensagem no banco de dados
-            const novaMensagemSalva = await salvarMensagemNoBancoDeDados(mensagem);
-            console.log('mensagem salva', socket.id);
-            
-            // Emitir a mensagem para todos os clientes conectados
-            io.emit('novaMensagem', novaMensagemSalva);
-        } catch (error) {
-            console.error('Erro ao salvar a mensagem:', error);
-        }
-    });
-});
 
 
 
@@ -53,7 +35,7 @@ const mongoURI = 'mongodb+srv://ramon:13153080552@cluster0.cij4gvt.mongodb.net/'
 mongoose.connect(mongoURI, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
-})
+}) 
 .then(() => {
     console.log('Conectado ao MongoDB');
 
@@ -62,6 +44,21 @@ mongoose.connect(mongoURI, {
     server.listen(PORT, () => {
         console.log(`Servidor rodando na porta ${PORT}`);
     });
+ 
+    io.on('connection', async (socket) => {
+        console.log('Nova conexão de socket estabelecida', socket.id);
+
+        socket.on('novaMensagem', novaMensagem => {
+            const resposta = `Recebi sua mensagem: ${novaMensagem} `+ socket.id;
+            console.log(resposta)
+            
+            io.emit('respostaMensagem', novaMensagem);
+        })
+ 
+        socket.on('disconnect', desconnect => {
+            console.log('conectão perdida', socket.id)
+        })
+    })
 })
 .catch((err) => {
     console.error('Erro ao conectar ao MongoDB:', err);

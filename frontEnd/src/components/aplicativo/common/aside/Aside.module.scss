@@ -12,12 +12,15 @@
     max-height: 400px;
     position: fixed;
 
+
+    // ESTILO ADAPTADO PARA INSERIR NO MENU PARA MOBILE
     &#dentroDoMenu {
-        max-height: 600px;
+        min-height: auto;
         overflow-y: auto;
         width: 100%;
         position: relative;
     }
+
 
     .containerInputPrucurarPorAmigo {
         position: relative;
@@ -41,6 +44,7 @@
         }
     }
 
+    
     .buttonAdicionarNovoAmigo {
         color: white;
         background-color: rgb(80, 78, 78);
@@ -59,6 +63,7 @@
         
     }
 
+    
     .cardsAmigos {
         display: flex;
         justify-content: space-between;
