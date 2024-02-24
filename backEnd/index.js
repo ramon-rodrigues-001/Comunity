@@ -7,7 +7,8 @@ const cors = require('cors');
 
 const registerRouter = require('./routers/register');
 const loginRouter = require('./routers/login');
-const mensagemRouter = require('./routers/rotaDeMensagem');
+const rotaDeMensagem = require('./routers/rotaDeMensagem')
+// const mensagemRouter = require('./routers/rotaDeMensagem');
 
 
  
@@ -25,7 +26,7 @@ app.use(cors());
 // Configuração das rotas após a conexão com o banco de dados
 app.use('/', registerRouter);
 app.use('/', loginRouter);
-app.use('/', mensagemRouter);
+// app.use('/', mensagemRouter);
 
 
 
@@ -49,10 +50,9 @@ mongoose.connect(mongoURI, {
         console.log('Nova conexão de socket estabelecida', socket.id);
 
         socket.on('novaMensagem', novaMensagem => {
-            const resposta = `Recebi sua mensagem: ${novaMensagem} `+ socket.id;
-            console.log(resposta)
+            const resposta = rotaDeMensagem(novaMensagem)
             
-            io.emit('respostaMensagem', novaMensagem);
+            io.emit('respostaMensagem', resposta);
         })
  
         socket.on('disconnect', desconnect => {

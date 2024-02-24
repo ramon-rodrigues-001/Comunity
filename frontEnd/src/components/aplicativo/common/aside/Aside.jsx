@@ -3,6 +3,8 @@ import styles from "./Aside.module.scss"
 function Aside(props) {
   const taDentroDoMenu = props.taDentroDoMenu
 
+  
+  // CONSTRUTOR DE ELEMENTO HTML
   const newAmigo = () => {
     const containerDeAmigos = document.querySelector('.containerDeAmigos')
 
@@ -36,7 +38,6 @@ function Aside(props) {
 
     containerDeAmigos.appendChild(cardsAmigos)
   }
-
 
 
 

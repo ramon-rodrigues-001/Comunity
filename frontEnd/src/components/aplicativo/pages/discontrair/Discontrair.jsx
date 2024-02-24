@@ -48,9 +48,13 @@ function Discontrair(props) {
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam tenetur temporibus expedita in illo beatae dignissimos nulla adipisci fugiat, praesentium ipsa, 
                   </div>
                   <img src="/logo-2.png" alt="background-home" className={styles.img_background}/>
+                  {/* <div className={styles.curtidas}>
+                    <span><i class="bi bi-hand-thumbs-up-fill"></i> 16</span>
+                    <span><i class="bi bi-hand-thumbs-down-fill"></i> 3</span>
+                  </div> */}
                   <div className={styles.curtidas}>
-                    <span>Li: 16</span>
-                    <span>Dk: 2</span>
+                    <span><i class="bi bi-hand-thumbs-up"></i> 16</span>
+                    <span><i class="bi bi-hand-thumbs-down"></i> 3</span>
                   </div>
                 </div>
               </div>

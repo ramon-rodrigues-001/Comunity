@@ -29,7 +29,7 @@ export default function ChatPv(props) {
 
     socket.on('respostaMensagem', async resposta => {
         console.log('Resposta do servidor: ' + resposta);
-        setHistorico_de_mensagem(prevMessages => [...prevMessages, resposta]);
+        await setHistorico_de_mensagem([...prevMessages, resposta]);
         console.log(historico_de_mensagem)
     });
 
@@ -44,18 +44,18 @@ export default function ChatPv(props) {
 
         socket.emit('novaMensagem', mensagemEnviada)
 
-        try {
-            const response = await fetch("http://localhost:4000/api/mensagem", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({mensagemEnviada}),
-            });
-        } 
-        catch (error) {
-            console.error("Erro ao enviar mensagem:", error);
-        }
+        // try {
+        //     const response = await fetch("http://localhost:4000/api/mensagem", {
+        //         method: "POST",
+        //         headers: {
+        //             "Content-Type": "application/json",
+        //         },
+        //         body: JSON.stringify({mensagemEnviada}),
+        //     });
+        // } 
+        // catch (error) {
+        //     console.error("Erro ao enviar mensagem:", error);
+        // }
     }
 
 

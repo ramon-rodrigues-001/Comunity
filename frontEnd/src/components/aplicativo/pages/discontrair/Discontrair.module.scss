@@ -94,14 +94,23 @@
                     padding-top: 10px;
     
                     span {
+                        font-size: 1.1em;
                         border: solid 1px rgba(0, 0, 0, 0.323);
                         padding: 3px 10px;
                         border-radius: 5px;
+                        user-select: none;
                         transition: .3s;
     
                         &:hover {
                             border-color: black;
                             scale: 1.07;
+                        }
+
+                        &:active {
+                            transition: 0s;
+                            scale: 1.5;
+                            background-color: rgb(55, 53, 53);
+                            color: white;
                         }
                     }
                 }
@@ -138,6 +147,15 @@
                 .post {
                     background-color: $itens_Pretos; 
                     color: white;
+
+                    .curtidas {
+                        span {
+                            border: solid 1px rgba(255, 255, 255, 0.323);
+                            &:hover {
+                                border-color: rgb(255, 255, 255);
+                            }
+                        }
+                    }
                 }
                 .container_anuncios {
                     .anuncios {
