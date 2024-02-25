@@ -26,7 +26,7 @@ const mensagemModel = require('../models/mensagem.js');
 // module.exports = router
 
 
-module.exports = function rotaDeMensagem(mensagemEnviada) {
+module.exports = async function rotaDeMensagem(mensagemEnviada) {
     if (!mensagemEnviada) return console.log('Erro mensagem enviada não e valida');
 
     const newMensagem = new mensagemModel({
@@ -36,7 +36,8 @@ module.exports = function rotaDeMensagem(mensagemEnviada) {
 
     try {
         newMensagem.save();
-        return mensagemModel.find()
+        // const mensagensSalvas = await mensagemModel.find();
+        // return mensagensSalvas;
     } catch (error) {
         console.log('===== Erro ao enviar mensagem (erro de codigo) =====', error);
         return console.log('Erro ao salvar a mensagem');

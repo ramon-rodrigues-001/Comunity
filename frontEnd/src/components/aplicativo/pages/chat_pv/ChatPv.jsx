@@ -13,7 +13,7 @@ export default function ChatPv(props) {
     const handleInput = (event) => {
         const inputArea = event.currentTarget;
         inputArea.style.height = 'auto';
-        inputArea.style.height = inputArea.scrollHeight + 'px';
+        inputArea.style.height = inputArea.scrollHeight + 'px'; 
     }
 
 
@@ -27,9 +27,10 @@ export default function ChatPv(props) {
         // };
     }, []);
 
-    socket.on('respostaMensagem', async resposta => {
-        console.log('Resposta do servidor: ' + resposta);
-        await setHistorico_de_mensagem([...prevMessages, resposta]);
+    socket.on('respostaMensagem', async (resposta) => {
+        console.log('Resposta do servidor: ' + resposta[0].mensagem);
+        // const msgResposta = await resposta
+        setHistorico_de_mensagem(resposta);
         console.log(historico_de_mensagem)
     });
 
@@ -69,17 +70,20 @@ export default function ChatPv(props) {
             <div className={styles.chat}>
 
                 {historico_de_mensagem.map(item => (
+                    <>
                     <div className={styles.msg} id={styles.voce}>
                         <h4>You</h4>
-                        <p>{item}</p>
+                        <p>{item.mensagem}</p>
                     </div>
+                    <div className={styles.msg} id={styles.amigo}>
+                    <h4>Ramon</h4>
+                    <p>Olá, tudo bem? Seja bem vindo a Comunity uma plataforma de comunicação, no momento estamos em versão beta, e ainda estou desenvolvendo e aplimorando este espaço de comunicação.</p>
+                </div>
+                    </>
                 ))}
 
 
-                {/* <div className={styles.msg} id={styles.amigo}>
-                    <h4>Ramon</h4>
-                    <p>Olá, tudo bem? Seja bem vindo a Comunity uma plataforma de comunicação, no momento estamos em versão beta, e ainda estou desenvolvendo e aplimorando este espaço de comunicação.</p>
-                </div> */}
+                
                 
             </div>
         </div>
