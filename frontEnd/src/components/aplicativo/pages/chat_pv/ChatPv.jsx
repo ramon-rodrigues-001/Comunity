@@ -6,7 +6,12 @@ const socket = io('http://localhost:4000');
 
 export default function ChatPv(props) {
     const tema = props.tema
-    const [historico_de_mensagem, setHistorico_de_mensagem] = useState([])
+    const [historico_de_mensagem, setHistorico_de_mensagem] = useState(() => {
+        const chatSalvo = localStorage.getItem('chat');
+        return chatSalvo ? JSON.parse(chatSalvo) : [];
+        // return localStorage.getItem('chat')
+    });
+    console.log(localStorage.getItem('chat'))
 
 
     // ==== Para mudar o tamanho do input de messagem ====
@@ -17,23 +22,28 @@ export default function ChatPv(props) {
     }
 
 
-    useEffect(() => {
-        socket.on('connect', socketIO => {
+    useEffect(() => { 
+        socket.on('connect', () => {
             console.log('Conectado ao servidor Socket.IO');
-        });    
-
-        // return () => {
-        //     io.disconnect(); // Desconectar-se do servidor Socket.IO ao desmontar o componente
-        // };
+        });
+        
+        return () => {
+            socket.off('connect');
+        }; 
     }, []);
 
-    socket.on('respostaMensagem', async (resposta) => {
-        console.log('Resposta do servidor: ' + resposta[0].mensagem);
-        // const msgResposta = await resposta
-        setHistorico_de_mensagem(resposta);
-        console.log(historico_de_mensagem)
-    });
+    
 
+    socket.on('respostaMensagem', (resposta) => {
+        console.log('Resposta do servidor:', resposta);
+        const listaDeMensagem = resposta.map(item => item.mensagem);
+        localStorage.setItem('chat', JSON.stringify(listaDeMensagem));
+        
+        setHistorico_de_mensagem(localStorage.getItem('chat'));
+    });
+    
+ 
+    
 
 
     // ==== Salvar a mensagem no banco de dados MongoDB ====
@@ -45,18 +55,6 @@ export default function ChatPv(props) {
 
         socket.emit('novaMensagem', mensagemEnviada)
 
-        // try {
-        //     const response = await fetch("http://localhost:4000/api/mensagem", {
-        //         method: "POST",
-        //         headers: {
-        //             "Content-Type": "application/json",
-        //         },
-        //         body: JSON.stringify({mensagemEnviada}),
-        //     });
-        // } 
-        // catch (error) {
-        //     console.error("Erro ao enviar mensagem:", error);
-        // }
     }
 
 
@@ -73,7 +71,7 @@ export default function ChatPv(props) {
                     <>
                     <div className={styles.msg} id={styles.voce}>
                         <h4>You</h4>
-                        <p>{item.mensagem}</p>
+                        <p>{item}</p>
                     </div>
                     <div className={styles.msg} id={styles.amigo}>
                     <h4>Ramon</h4>

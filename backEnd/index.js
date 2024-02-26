@@ -3,7 +3,6 @@ const http = require('http');
 const socketio = require('socket.io');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const mensagemModel = require('./models/mensagem.js');
 
 
 const registerRouter = require('./routers/register');
@@ -22,7 +21,7 @@ const io = socketio(server, { cors: { origin: 'http://127.0.0.1:5173', methods: 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
-
+ 
 
 // Configuração das rotas após a conexão com o banco de dados
 app.use('/', registerRouter);
@@ -49,31 +48,27 @@ mongoose.connect(mongoURI, {
  
     io.on('connection', async (socket) => {
         console.log('Nova conexão de socket estabelecida', socket.id); 
-
-        try {
-            const mensagensSalvas = await mensagemModel.find()
-            await socket.emit('respostaMensagem', mensagensSalvas);
-        } catch (error) {
-            console.error('Erro ao enviar todas as mensagens:', error);
-            socket.emit('erroProcessamento', { mensagem: 'Erro ao enviar todas as mensagens' });
-        }
-        
-        socket.on('novaMensagem', async novaMensagem => {
+    
+    
+        socket.on('novaMensagem', async (novaMensagem) => {
             try {
                 const resposta = await rotaDeMensagem(novaMensagem);
+                socket.emit('respostaMensagem', resposta);
                 console.log(resposta);
             } catch (error) {
                 console.error('Erro ao processar nova mensagem:', error);
-                // Emitir um evento de erro para o cliente, se necessário
-                socket.emit('erroProcessamento', { mensagem: 'Erro ao processar nova mensagem' });
+                // socket.emit('erroProcessamento', { mensagem: 'Erro ao processar nova mensagem' });
             }
-        });
+        }); 
         
- 
-        socket.on('disconnect', desconnect => {
-            console.log('conectão perdida', socket.id)
-        })
-    })
+    
+        socket.on('disconnect', () => {
+            console.log('Conexão perdida', socket.id);
+        });
+    });
+
+    
+    
 })
 .catch((err) => {
     console.error('Erro ao conectar ao MongoDB:', err);

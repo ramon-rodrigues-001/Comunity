@@ -36,8 +36,8 @@ module.exports = async function rotaDeMensagem(mensagemEnviada) {
 
     try {
         newMensagem.save();
-        // const mensagensSalvas = await mensagemModel.find();
-        // return mensagensSalvas;
+        const mensagensSalvas = await mensagemModel.find();
+        return mensagensSalvas;
     } catch (error) {
         console.log('===== Erro ao enviar mensagem (erro de codigo) =====', error);
         return console.log('Erro ao salvar a mensagem');
