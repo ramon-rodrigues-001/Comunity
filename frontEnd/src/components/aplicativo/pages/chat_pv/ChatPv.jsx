@@ -9,7 +9,6 @@ export default function ChatPv(props) {
     const [historico_de_mensagem, setHistorico_de_mensagem] = useState(() => {
         const chatSalvo = localStorage.getItem('chat');
         return chatSalvo ? JSON.parse(chatSalvo) : [];
-        // return localStorage.getItem('chat')
     });
     console.log(localStorage.getItem('chat'))
 
@@ -39,7 +38,10 @@ export default function ChatPv(props) {
         const listaDeMensagem = resposta.map(item => item.mensagem);
         localStorage.setItem('chat', JSON.stringify(listaDeMensagem));
         
-        setHistorico_de_mensagem(localStorage.getItem('chat'));
+        setHistorico_de_mensagem(
+            JSON.parse(localStorage.getItem('chat'))
+        );
+        
     });
     
  
