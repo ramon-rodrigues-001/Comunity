@@ -48,7 +48,7 @@ export default function App() {
     return (
         <>
         {/* ANIMAÇÃO DE PRE-LOADING */}
-        {loading ? (
+        {/* {loading ? (
             <div className={styles.preload}>
                 <div className={styles.cube}>
                 <div className={styles.top}></div>
@@ -58,9 +58,15 @@ export default function App() {
                 <span style={{ '--i': 3 }}></span>
                 </div>
             </div>
-        ) : (
-            // ROTAS E PAGINAS
-            <div className={styles.container} id={tema === 'Escuro' ? styles.containerDark : null}>
+        ) : ( */}
+            {/* // ROTAS E PAGINAS */}
+            
+        {/* )} */}
+
+
+
+
+        <div className={styles.container} id={tema === 'Escuro' ? styles.containerDark : null}>
                 < Header mudarTema={mudarTema} tema={tema}/>
 
                 <main className={styles.main} >
@@ -105,11 +111,6 @@ export default function App() {
 
 
             </div>
-        )}
-
-
-
-
         
     </>
     )
