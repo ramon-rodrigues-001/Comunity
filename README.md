@@ -1,6 +1,8 @@
 
 <body>
 
+  <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=00bfbf&height=120&section=header&animation=blinking&fontColor=fff&fontSize=50"/>
+
   <header>
     <h1>🌐 Comunity - Ramon Rodrigues</h1>
     <p>
@@ -122,6 +124,8 @@ server/
     <h2>📝 Licença</h2>
     <p>Este projeto está licenciado sob a <strong>Licença MIT</strong>. Consulte o arquivo <a href="LICENSE">LICENSE</a> para mais detalhes.</p>
   </section>
+  
+  <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=00bfbf&height=120&section=footer"/>
 
 </body>
 </html>
